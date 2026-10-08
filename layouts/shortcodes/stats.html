@@ -1,0 +1,11 @@
+{{- $g := .Get "grupo" -}}
+<div class="stats">
+{{- range where site.Data.estatisticas "grupo" $g }}
+<article class="stat" id="{{ .id }}">
+  <p class="stat-n">{{ .numero }}</p>
+  <p class="stat-l">{{ .rotulo }} <span class="mu">· {{ .periodo }}</span></p>
+  <p class="stat-f">{{ .frase }}</p>
+  <p class="stat-s small mu">Fonte: <a href="{{ .url }}" rel="noopener" target="_blank">{{ .fonte }}</a>{{ with .url2 }} · <a href="{{ . }}" rel="noopener" target="_blank">segunda fonte</a>{{ end }} · Atualizado em {{ dateFormat "02/01/2006" .atualizado }}</p>
+</article>
+{{- end }}
+</div>

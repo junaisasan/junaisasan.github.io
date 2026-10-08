@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+<article class="prose page entry">
+  <h1>{{ with .Params.pergunta }}{{ . }}{{ else }}{{ .Title }}{{ end }}</h1>
+  {{ partial "resposta.html" . }}
+  <p class="mu small">Termo: {{ .Title }} · Atualizado em {{ .Lastmod.Format "02/01/2006" }}</p>
+  {{ .Content }}
+  {{ partial "faq.html" . }}
+  <p class="small"><a href="{{ "/glossario/" | relURL }}">Ver todos os termos do glossário</a></p>
+</article>
+{{ $pub := partial "ld-publisher.html" . }}
+{{ $sec := site.GetPage "/glossario" }}
+{{ $set := dict "@type" "DefinedTermSet" "@id" (printf "%s#glossario" $sec.Permalink) "name" $sec.Title "url" $sec.Permalink }}
+{{ $term := dict "@type" "DefinedTerm" "@id" (printf "%s#termo" .Permalink) "name" .Title "description" .Params.definicao "url" .Permalink "inLanguage" "pt-BR" "inDefinedTermSet" $set }}
+{{ $page := dict "@type" "WebPage" "@id" .Permalink "url" .Permalink "name" (or .Params.pergunta .Title) "description" (or .Description site.Params.description) "inLanguage" "pt-BR" "datePublished" (.Date.Format "2006-01-02") "dateModified" (.Lastmod.Format "2006-01-02") "about" (dict "@id" (printf "%s#termo" .Permalink)) "publisher" $pub }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" (slice $page $term) | jsonify | safeJS }}</script>
+{{ end }}

@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale }}">
+<head>{{ partial "head.html" . }}</head>
+<body>
+{{ partial "header.html" . }}
+<main class="wrap">{{ block "main" . }}{{ end }}</main>
+{{ partial "footer.html" . }}
+{{ with site.Params.adsenseClient }}<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ . }}" crossorigin="anonymous"></script>{{ end }}
+</body>
+</html>

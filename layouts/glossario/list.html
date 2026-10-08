@@ -1,0 +1,27 @@
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+{{ $pages := .Pages.ByTitle }}
+<div class="prose page">
+  <h1>{{ .Title }}</h1>
+  {{ partial "resposta.html" . }}
+  {{ .Content }}
+  <nav class="az" aria-label="Índice de A a Z">
+    {{ range split "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "" }}{{ $l := . }}{{ $has := false }}{{ range $pages }}{{ if eq (upper (substr .Title 0 1)) $l }}{{ $has = true }}{{ end }}{{ end }}{{ if $has }}<a href="#letra-{{ $l }}">{{ $l }}</a>{{ else }}<span aria-hidden="true">{{ $l }}</span>{{ end }}{{ end }}
+  </nav>
+  {{ range split "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "" }}{{ $l := . }}
+  {{ $group := slice }}{{ range $pages }}{{ if eq (upper (substr .Title 0 1)) $l }}{{ $group = $group | append . }}{{ end }}{{ end }}
+  {{ if $group }}
+  <section id="letra-{{ $l }}" aria-labelledby="h-{{ $l }}">
+    <h2 id="h-{{ $l }}">{{ $l }}</h2>
+    <dl class="termos">
+      {{ range $group }}<dt><a href="{{ .RelPermalink }}">{{ .Title }}</a></dt><dd>{{ .Params.definicao }}</dd>{{ end }}
+    </dl>
+  </section>
+  {{ end }}
+  {{ end }}
+</div>
+{{ $terms := slice }}
+{{ range $pages }}{{ $terms = $terms | append (dict "@type" "DefinedTerm" "name" .Title "description" .Params.definicao "url" .Permalink) }}{{ end }}
+{{ $set := dict "@context" "https://schema.org" "@type" "DefinedTermSet" "@id" (printf "%s#glossario" .Permalink) "name" .Title "url" .Permalink "inLanguage" "pt-BR" "hasDefinedTerm" $terms }}
+<script type="application/ld+json">{{ $set | jsonify | safeJS }}</script>
+{{ end }}

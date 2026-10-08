@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="Xlw3QfjcYi9b11Yampj1nXYPAEEp1zAKjL4iupKO2ZU" />
+<title>{{ with .Params.seoTitle }}{{ . }}{{ else }}{{ if .IsHome }}{{ site.Title }}{{ else }}{{ with .Params.pergunta }}{{ . }}{{ else }}{{ .Title }}{{ end }}{{ end }}{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta property="og:title" content="{{ with .Params.seoTitle }}{{ . }}{{ else }}{{ if .IsHome }}{{ site.Title }}{{ else }}{{ with .Params.pergunta }}{{ . }}{{ else }}{{ .Title }}{{ end }}{{ end }}{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+<meta property="og:image" content="{{ "infografico-cpf-muito-alem-de-11-numeros.webp" | absURL }}">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1536">
+<meta name="twitter:card" content="summary_large_image">
+{{ if eq .Kind "404" }}<meta name="robots" content="noindex">{{ else }}<meta name="robots" content="index,follow,max-image-preview:large">{{ end }}
+{{ if fileExists "static/fonts/inter-latin-var.woff2" }}<link rel="preload" href="/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>{{ end }}
+{{ if fileExists "static/fonts/source-serif-4-latin-var.woff2" }}<link rel="preload" href="/fonts/source-serif-4-latin-var.woff2" as="font" type="font/woff2" crossorigin>{{ end }}
+{{ $css := resources.Get "css/main.css" | minify | fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+{{ if .IsHome }}
+{{ $pub := partial "ld-publisher.html" . }}
+{{ $ref := dict "@id" (index $pub "@id") }}
+{{ $home := .Permalink }}
+{{ $site := dict "@type" "WebSite" "@id" (printf "%s#website" $home) "url" $home "name" site.Title "inLanguage" "pt-BR" "publisher" $ref }}
+{{ $app := dict "@type" "WebApplication" "name" site.Title "url" $home "description" site.Params.description "applicationCategory" "UtilitiesApplication" "operatingSystem" "Any" "inLanguage" "pt-BR" "isAccessibleForFree" true "featureList" (slice "Gerar CPF válido e aleatório" "Com ou sem pontuação" "Escolher o estado de origem" "Gerar vários CPFs de uma vez" "Baixar a lista em CSV") "publisher" $ref "offers" (dict "@type" "Offer" "price" "0" "priceCurrency" "BRL") }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" (slice $pub $site $app) | jsonify | safeJS }}</script>
+{{ end }}

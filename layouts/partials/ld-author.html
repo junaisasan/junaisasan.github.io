@@ -1,0 +1,4 @@
+{{- $n := site.Title -}}
+{{- $t := "Organization" -}}
+{{- with site.Params.author -}}{{- with .name -}}{{- $n = . -}}{{- end -}}{{- with .type -}}{{- $t = . -}}{{- end -}}{{- end -}}
+{{- return (dict "@type" $t "name" $n "url" site.Home.Permalink) -}}

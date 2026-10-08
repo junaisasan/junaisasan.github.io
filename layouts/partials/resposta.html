@@ -1,0 +1,6 @@
+{{- with .Params.definicao -}}
+{{- if gt (countwords .) 50 }}{{ warnf "definicao com %d palavras (máx. 50) em: %s" (countwords .) $.Title }}{{ end -}}
+<p class="resposta">{{ . }}</p>
+{{- else -}}
+{{- warnf "sem definicao (resposta nos primeiros 50 palavras) em: %s" .Title -}}
+{{- end -}}

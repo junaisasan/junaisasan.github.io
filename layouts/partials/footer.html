@@ -1,0 +1,9 @@
+<footer class="site">
+  <div class="bar foot">
+    <span>© {{ now.Year }} {{ site.Title }}</span>
+    <nav aria-label="Rodapé"><ul>
+      {{ range site.Menus.footer }}<li><a href="{{ .URL }}">{{ .Name }}</a></li>{{ end }}
+    </ul></nav>
+    <span class="mu">Números gerados aleatoriamente, apenas para testes.</span>
+  </div>
+</footer>

@@ -1,0 +1,9 @@
+{{- $grupos := dict "base" "base-de-cpfs" "cin" "cin" "fraude" "fraude-de-identidade" "declaracoes" "declaracoes-e-cnpj" -}}
+<div class="tablewrap"><table class="painel">
+<thead><tr><th>Número</th><th>O que é</th><th>Período</th><th>Fonte</th></tr></thead>
+<tbody>
+{{- range site.Data.estatisticas }}
+<tr><td><strong><a href="{{ printf "/estatisticas/%s/#%s" (index $grupos .grupo) .id | relURL }}">{{ .numero }}</a></strong></td><td>{{ .rotulo }}</td><td>{{ .periodo }}</td><td>{{ .fonte }}</td></tr>
+{{- end }}
+</tbody></table></div>
+<p class="small mu">Atualizado em {{ dateFormat "02/01/2006" (index site.Data.estatisticas 0).atualizado }}. Clique no número para ver a frase citável, a fonte e o link.</p>

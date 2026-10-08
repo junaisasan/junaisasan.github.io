@@ -1,0 +1,11 @@
+{{- if not .IsHome -}}
+{{- $items := slice (dict "name" "Início" "url" site.Home.Permalink) -}}
+{{- with .Parent -}}{{- if not .IsHome -}}{{- $items = $items | append (dict "name" .Title "url" .Permalink) -}}{{- end -}}{{- end -}}
+{{- $items = $items | append (dict "name" .Title "url" .Permalink) -}}
+<nav class="crumbs" aria-label="Trilha de navegação">
+{{- range $i, $e := $items }}{{ if $i }}<span aria-hidden="true"> / </span>{{ end }}{{ if eq (add $i 1) (len $items) }}<span aria-current="page">{{ $e.name }}</span>{{ else }}<a href="{{ $e.url }}">{{ $e.name }}</a>{{ end }}{{ end -}}
+</nav>
+{{- $list := slice -}}
+{{- range $i, $e := $items -}}{{- $list = $list | append (dict "@type" "ListItem" "position" (add $i 1) "name" $e.name "item" $e.url) -}}{{- end }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" $list | jsonify | safeJS }}</script>
+{{- end -}}

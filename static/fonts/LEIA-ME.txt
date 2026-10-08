@@ -1,0 +1,10 @@
+Coloque aqui os arquivos de fonte (WOFF2, subconjunto latin, fonte variável, licença OFL):
+
+  inter-latin-var.woff2             -> Inter (texto)
+  source-serif-4-latin-var.woff2    -> Source Serif 4 (títulos)
+
+Onde baixar: fontsource.org (pacotes @fontsource-variable/inter e @fontsource-variable/source-serif-4,
+arquivo "...-latin-wght-normal.woff2") ou fonts.google.com. Renomeie para os nomes acima.
+O subconjunto "latin" já cobre os acentos do português (á, ç, ã, õ...).
+Sem os arquivos o site funciona normalmente, usando as fontes de reserva (system-ui e Georgia).
+Depois de adicionar, o <link rel="preload"> aparece sozinho (veja layouts/partials/head.html).

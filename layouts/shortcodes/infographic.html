@@ -1,0 +1,17 @@
+{{- $src := resources.Get "img/infografico-cpf-muito-alem-de-11-numeros.webp" -}}
+{{- $sm  := $src.Resize "720x webp q80" -}}
+{{- $lg  := $src.Resize "1024x webp q80" -}}
+<picture>
+  <source
+    srcset="{{ $sm.RelPermalink }} 720w, {{ $lg.RelPermalink }} 1024w"
+    sizes="(max-width: 720px) 100vw, 720px"
+    type="image/webp">
+  <img
+    src="{{ $sm.RelPermalink }}"
+    alt="Infográfico: CPF, muito além de 11 números. Entenda a estrutura, região fiscal e os dígitos verificadores do Cadastro de Pessoas Físicas."
+    width="{{ $sm.Width }}"
+    height="{{ $sm.Height }}"
+    loading="lazy"
+    decoding="async"
+    style="max-width:100%;height:auto;display:block;border-radius:8px;margin:16px 0">
+</picture>

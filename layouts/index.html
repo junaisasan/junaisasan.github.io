@@ -1,0 +1,9 @@
+{{ define "main" }}
+{{ partial "ad.html" (dict "slot" site.Params.adSlotTop) }}
+{{ partial "cpf-tool.html" . }}
+{{ partial "ad.html" (dict "slot" site.Params.adSlotBottom) }}
+<div class="prose pillar">
+  {{ .Content }}
+  {{ partial "faq.html" . }}
+</div>
+{{ end }}

@@ -1,0 +1,80 @@
+/* Fontes: Inter (texto) e Source Serif 4 (títulos), auto-hospedadas em static/fonts/ (veja static/fonts/LEIA-ME.txt).
+   Se os arquivos não existirem, o navegador usa a pilha de reserva (sem erro visual). */
+@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url(/fonts/inter-latin-var.woff2) format("woff2")}
+@font-face{font-family:"Source Serif 4";font-style:normal;font-weight:200 900;font-display:swap;src:url(/fonts/source-serif-4-latin-var.woff2) format("woff2")}
+@font-face{font-family:"Inter Fallback";src:local("Arial");size-adjust:107.4%;ascent-override:90.2%;descent-override:22.5%;line-gap-override:0%}
+:root{--tx:#1b2430;--mu:#5b6675;--ln:#e4e8ee;--ac:#0a7d4f;--ac2:#08663f;--r:8px}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--tx);font:16px/1.65 "Inter","Inter Fallback",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-optical-sizing:auto;-webkit-text-size-adjust:100%}
+a{color:var(--ac)}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px 40px}
+.bar{max-width:720px;margin:0 auto;padding:6px 16px;min-height:52px;display:flex;align-items:center;justify-content:space-between;gap:8px 16px;flex-wrap:wrap}
+header.site,footer.site{border-bottom:1px solid var(--ln)}
+footer.site{border:0;border-top:1px solid var(--ln);font-size:14px}
+.foot{padding:14px 16px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--tx);text-decoration:none}
+nav ul{display:flex;flex-wrap:wrap;gap:2px;list-style:none;margin:0;padding:0}
+nav a{display:block;padding:6px 10px;border-radius:var(--r);color:var(--mu);text-decoration:none;font-size:14px}
+nav a:hover,nav a[aria-current]{color:var(--tx);background:#f3f5f8}
+.mu{color:var(--mu)}.small{font-size:13px}
+.ad{margin:14px 0;min-height:90px;contain:layout style}
+.ad ins.adsbygoogle{display:block!important;min-height:90px}
+.ad-label{display:block;font-size:11px;color:var(--mu)}
+.ad-empty{border:1px dashed var(--ln);color:var(--mu);display:flex;align-items:center;justify-content:center}
+.tool{padding:8px 0 4px}
+h1{font-size:26px;line-height:1.25;margin:12px 0 6px}
+.lead{color:var(--mu);margin:0 0 14px}
+fieldset{border:0;padding:0;margin:0 0 12px}
+legend,.field{display:block;font-weight:600;font-size:15px;padding:0;margin-bottom:4px}
+fieldset label{margin-right:16px}
+select{display:block;width:100%;max-width:260px;padding:8px 10px;border:1px solid var(--ln);border-radius:var(--r);font:inherit;background:#fff;margin-bottom:14px}
+.btn{background:var(--ac);color:#fff;border:0;border-radius:var(--r);padding:10px 20px;font:inherit;font-weight:600;cursor:pointer}
+.btn:hover{background:var(--ac2)}
+.ghost{background:#fff;color:var(--tx);border:1px solid var(--ln);border-radius:var(--r);padding:8px 14px;font:inherit;font-size:14px;cursor:pointer}
+.ghost:hover{background:#f3f5f8}
+.out{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--ln);border-radius:var(--r);padding:10px 14px;margin-top:14px}
+.out div{display:flex;flex-direction:column}
+output{font-size:24px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:.02em;word-break:break-all}
+.note{font-size:13px;color:var(--mu);margin:12px 0 0}
+.prose h2{font-size:20px;line-height:1.3;margin:28px 0 8px}
+.prose p,.prose ul,.prose ol{margin:0 0 12px}
+.prose table{border-collapse:collapse;width:100%;font-size:15px;margin:0 0 12px}
+.prose th,.prose td{border:1px solid var(--ln);padding:6px 10px;text-align:left}
+.prose th{background:#f7f9fb}
+.faq{border-bottom:1px solid var(--ln);padding:8px 0}
+.faq summary{cursor:pointer;font-weight:600}
+.faq p{margin:8px 0 0;color:var(--mu)}
+.posts{list-style:none;padding:0}.posts li{padding:8px 0;border-bottom:1px solid var(--ln)}.posts span{display:block}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+.prose pre{overflow-x:auto;background:#f7f9fb;border:1px solid var(--ln);border-radius:var(--r);padding:12px;margin:0 0 14px;font-size:13.5px;line-height:1.5}
+.prose code{font-size:.92em}
+.prose h3{font-size:17px;margin:20px 0 6px}
+input[type=text]{display:block;width:100%;max-width:280px;padding:10px 12px;border:1px solid var(--ln);border-radius:var(--r);font:inherit;font-size:18px;letter-spacing:.03em;margin-bottom:14px;background:#fff;color:var(--tx)}
+.vres{margin-top:14px;padding:0 0 0 12px;border-left:3px solid transparent}
+.vres p{margin:2px 0 0;color:var(--mu)}
+.vres.ok{border-left-color:var(--ac)}.vres.ok strong{color:var(--ac)}
+.vres.bad{border-left-color:#b42318}.vres.bad strong{color:#b42318}
+.crumbs{font-size:13px;color:var(--mu);margin:14px 0 0}
+.crumbs a{color:var(--mu)}
+.crumbs [aria-current]{color:var(--tx)}
+.prose img{max-width:100%;height:auto;display:block;border-radius:var(--r);margin:16px 0}
+
+/* Títulos e logo em serifa */
+h1,h2,h3,.logo span{font-family:"Source Serif 4",Georgia,"Times New Roman",serif}
+h1,h2,h3{font-weight:650;letter-spacing:-.005em}
+/* Glossário e estatísticas */
+.resposta{font-size:18px;line-height:1.55;margin:10px 0 12px;padding:12px 14px;border-left:4px solid var(--ac);background:#f4faf7;border-radius:0 var(--r) var(--r) 0}
+.az{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 18px}
+.az a,.az span{width:30px;height:30px;display:grid;place-items:center;border-radius:6px;font-size:14px;text-decoration:none}
+.az a{border:1px solid var(--ln);font-weight:600}.az a:hover{background:#f3f5f8}.az span{color:#c0c7d1}
+.termos{margin:0}.termos dt{font-weight:650;margin-top:14px}.termos dd{margin:2px 0 0;color:var(--mu)}
+.stats{display:grid;gap:12px;margin:14px 0 18px}
+.stat{border:1px solid var(--ln);border-radius:var(--r);padding:12px 14px}
+.stat p{margin:0 0 6px}
+.stat-n{font-family:"Source Serif 4",Georgia,serif;font-size:30px;line-height:1.15;font-weight:700;color:var(--ac);font-variant-numeric:lining-nums tabular-nums}
+.stat-l{font-weight:600}
+.stat-s{margin-bottom:0!important}
+.tablewrap{overflow-x:auto}
+.painel td:first-child{white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
+footer.site .foot nav ul{gap:0 4px}

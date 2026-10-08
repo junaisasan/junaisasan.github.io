@@ -1,0 +1,112 @@
+# Fonte única dos números do site. Cada item aparece no hub /estatisticas/ e na página do seu grupo.
+# Para atualizar: edite aqui, ajuste "atualizado" e rode o build. Nunca some itens de períodos diferentes.
+# grupo: base | cin | fraude | declaracoes
+- id: cpfs-ativos-serpro
+  grupo: base
+  numero: "226 milhões"
+  rotulo: "CPFs ativos"
+  periodo: "2026"
+  frase: "A Serpro informa que a base do CPF tem 226 milhões de números ativos, incluindo brasileiros e estrangeiros (2026)."
+  fonte: "Serpro"
+  url: "https://www.serpro.gov.br/menu/noticias/noticias-2026/cpf-servico-ao-cidadao"
+  atualizado: "2026-10-08"
+- id: cpfs-tcu-censo
+  grupo: base
+  numero: "216,84 milhões"
+  rotulo: "CPFs regulares de nascidos antes de 2022"
+  periodo: "Auditoria do TCU, comparada ao Censo 2022"
+  frase: "Auditoria do TCU encontrou 216,84 milhões de CPFs regulares de pessoas nascidas antes de 2022, contra 203,08 milhões de habitantes no Censo 2022, uma diferença de cerca de 13,76 milhões (InfoMoney)."
+  fonte: "InfoMoney"
+  url: "https://www.infomoney.com.br/brasil/cadastro-da-receita-tem-137-milhoes-de-cpfs-a-mais-que-o-censo-aponta-tcu/"
+  atualizado: "2026-10-08"
+- id: cpfs-centenarios
+  grupo: base
+  numero: "349,6 mil"
+  rotulo: "CPFs regulares de pessoas com 100 anos ou mais"
+  periodo: "Auditoria do TCU, comparada ao Censo 2022"
+  frase: "O TCU apontou 349,6 mil CPFs regulares de pessoas com 100 anos ou mais, contra 37,8 mil centenários no Censo, um excesso de 824,6% associado a CPFs de pessoas falecidas (InfoMoney)."
+  fonte: "InfoMoney"
+  url: "https://www.infomoney.com.br/brasil/cadastro-da-receita-tem-137-milhoes-de-cpfs-a-mais-que-o-censo-aponta-tcu/"
+  atualizado: "2026-10-08"
+- id: lei-14534
+  grupo: base
+  numero: "Lei 14.534"
+  rotulo: "CPF como número único"
+  periodo: "Janeiro de 2023"
+  frase: "A Lei 14.534, de janeiro de 2023, fez do CPF o número único de identificação do cidadão em bases de dados públicas (Serpro)."
+  fonte: "Serpro"
+  url: "https://www.serpro.gov.br/menu/noticias/noticias-2026/cpf-servico-ao-cidadao"
+  atualizado: "2026-10-08"
+- id: cpf-definicao-1965
+  grupo: base
+  numero: "11 dígitos"
+  rotulo: "Formato do CPF, em uso desde 1965"
+  periodo: "Desde 1965"
+  frase: "O CPF é um número de 11 dígitos atribuído pela Receita Federal a brasileiros e estrangeiros residentes, em uso desde 1965 (Wikipedia, em inglês)."
+  fonte: "Wikipedia (EN)"
+  url: "https://en.wikipedia.org/wiki/CPF_number"
+  atualizado: "2026-10-08"
+- id: cin-50-milhoes
+  grupo: cin
+  numero: "50.038.832"
+  rotulo: "CIN emitidas"
+  periodo: "Até 7 de abril de 2026"
+  frase: "Até 7 de abril de 2026, a Receita Federal destacou 50.038.832 Carteiras de Identidade Nacional (CIN) emitidas, documento que usa o CPF como número único (Fenacon)."
+  fonte: "Fenacon / Receita Federal"
+  url: "https://fenacon.org.br/noticias/receita-federal-destaca-marco-de-50-milhoes-de-carteiras-de-identidade-nacional-emitidas-no-pais/"
+  atualizado: "2026-10-08"
+- id: cin-55-milhoes
+  grupo: cin
+  numero: "55,8 milhões"
+  rotulo: "CIN emitidas (mais de)"
+  periodo: "Até 12 de junho de 2026"
+  frase: "Até 12 de junho de 2026, mais de 55,8 milhões de CIN haviam sido emitidas, cerca de 39,6 mil por dia, segundo o Ministério da Justiça (Correio Braziliense)."
+  fonte: "Correio Braziliense"
+  url: "https://www.correiobraziliense.com.br/brasil/2026/06/7441532-nova-carteira-de-identidade-ultrapassa-55-milhoes-de-emissoes.html"
+  atualizado: "2026-10-08"
+- id: fraude-maio-2026
+  grupo: fraude
+  numero: "476.060"
+  rotulo: "tentativas de fraude de identidade em cadastros"
+  periodo: "Maio de 2026"
+  frase: "A Serasa Experian registrou 476.060 tentativas de fraude de identidade em fluxos de cadastro em maio de 2026, uma a cada 5,6 segundos."
+  fonte: "Serasa Experian"
+  url: "https://www.serasaexperian.com.br/sala-de-imprensa/prevencao-a-fraude/fraudes-de-identidade-avancam-31-por-cento-em-maio-chegando-a-uma-ocorrencia-a-cada-5-segundos-segundo-serasa-experian/"
+  atualizado: "2026-10-08"
+- id: fraude-1s-2026
+  grupo: fraude
+  numero: "1.747.373"
+  rotulo: "tentativas de fraude de identidade no setor financeiro"
+  periodo: "1º semestre de 2026"
+  frase: "No 1º semestre de 2026, foram 1.747.373 tentativas de fraude de identidade no setor financeiro, alta de 9,5% sobre o mesmo período do ano anterior e uma a cada nove segundos, segundo a ABES e a Serasa Experian."
+  fonte: "ABES / Serasa Experian"
+  url: "https://abes.org.br/setor-financeiro-enfrentou-alta-de-quase-10-nas-tentativas-de-fraude-no-1o-semestre-revela-serasa-experian/"
+  atualizado: "2026-10-08"
+- id: fraude-1t-2026
+  grupo: fraude
+  numero: "1.495.696"
+  rotulo: "tentativas de fraude em cadastros e validações de identidade"
+  periodo: "1º trimestre de 2026"
+  frase: "No 1º trimestre de 2026, o Mapa da Fraude da Serasa Experian contabilizou 1.495.696 tentativas de fraude em cadastros e validações de identidade, alta de 36,6% sobre o mesmo período do ano anterior (Let's Money)."
+  fonte: "Let's Money / Serasa Mapa da Fraude"
+  url: "https://www.letsmoney.com.br/noticias/serasa-mapa-da-fraude-identidade-1-trimestre-2026/"
+  atualizado: "2026-10-08"
+- id: irpf-2026
+  grupo: declaracoes
+  numero: "44,4 milhões"
+  rotulo: "declarações de Imposto de Renda recebidas"
+  periodo: "2026"
+  frase: "A Receita Federal recebeu 44.498.717 declarações de Imposto de Renda em 2026, contra cerca de 43,5 milhões no ano anterior (Itatiaia e Correio da Manhã)."
+  fonte: "Itatiaia / Correio da Manhã"
+  url: "https://www.itatiaia.com.br/economia/irpf-2026-receita-federal-recebe-mais-de-44-milhoes-de-declaracoes-dentro-do-prazo/"
+  url2: "https://www.correiodamanha.com.br/economia/2026/05/289923-receita-federal-recebe-44-milhoes-de-declaracoes-de-imposto-de-renda.html"
+  atualizado: "2026-10-08"
+- id: cnpj-setembro-2026
+  grupo: declaracoes
+  numero: "70.085.591"
+  rotulo: "CNPJs registrados, dos quais 26.937.244 ativos"
+  periodo: "Setembro de 2026"
+  frase: "Em setembro de 2026 havia 70.085.591 CNPJs registrados, dos quais 26.937.244 estavam ativos (CFO, com base na Receita Federal)."
+  fonte: "CFO / Receita Federal"
+  url: "https://cfo.com.br/quantas-empresas-existem-brasil"
+  atualizado: "2026-10-08"

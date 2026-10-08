@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+<article class="prose page">
+  <h1>{{ .Title }}</h1>
+  {{ partial "resposta.html" . }}
+  <p class="mu small">Atualizado em {{ .Lastmod.Format "02/01/2006" }}</p>
+  {{ .Content }}
+  {{ partial "faq.html" . }}
+</article>
+{{ partial "ld-webpage.html" . }}
+{{ end }}

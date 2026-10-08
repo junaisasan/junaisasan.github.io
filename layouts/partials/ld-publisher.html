@@ -1,0 +1,1 @@
+{{- return (dict "@type" "Organization" "@id" (printf "%s#organization" site.Home.Permalink) "name" site.Title "url" site.Home.Permalink "logo" (dict "@type" "ImageObject" "url" (absURL "favicon.svg"))) -}}

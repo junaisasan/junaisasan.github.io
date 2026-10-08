@@ -1,0 +1,37 @@
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+<section class="tool" aria-labelledby="v-h">
+  <h1 id="v-h">{{ .Title }}</h1>
+  <p class="lead">Digite ou cole um CPF, com ou sem pontuação, e veja na hora se os dígitos verificadores conferem.</p>
+  <label class="field" for="cpf">CPF</label>
+  <input id="cpf" type="text" inputmode="numeric" autocomplete="off" maxlength="14" placeholder="000.000.000-00">
+  <button type="button" id="vbtn" class="btn">Validar CPF</button>
+  <div id="vbox" class="vres" role="status"><strong id="vt"></strong><p id="vd"></p></div>
+  <p class="note">A conferência é feita no seu navegador. O número digitado não é enviado nem guardado.</p>
+</section>
+<script>
+(function(){
+function dv(a){var s=0,n=a.length+1;for(var i=0;i<a.length;i++)s+=a[i]*(n-i);var r=s%11;return r<2?0:11-r;}
+function fmt(d){return d.slice(0,3)+'.'+d.slice(3,6)+'.'+d.slice(6,9)+'-'+d.slice(9);}
+var inp=document.getElementById('cpf'),box=document.getElementById('vbox'),t=document.getElementById('vt'),p=document.getElementById('vd');
+function show(cls,title,detail){box.className='vres '+cls;t.textContent=title;p.textContent=detail;}
+function run(){
+var d=inp.value.replace(/\D/g,'');
+if(!d){if(inp.value.trim()){show('bad','CPF inválido','O CPF contém apenas números.');}else{show('','Digite um CPF','Informe os 11 dígitos, com ou sem pontuação.');}return;}
+if(d.length!==11){show('bad','CPF inválido','Um CPF tem 11 dígitos e você informou '+d.length+'.');return;}
+if(/^(\d)\1{10}$/.test(d)){show('bad','CPF inválido','Sequências de dígitos repetidos são rejeitadas, mesmo passando na conta do módulo 11.');return;}
+var n=d.split('').map(Number),b=n.slice(0,9),v1=dv(b),v2=dv(b.concat(v1));
+if(v1===n[9]&&v2===n[10]){show('ok','CPF válido',fmt(d)+': os dígitos verificadores conferem. Isso não prova que o CPF existe nem que está regular.');}
+else{show('bad','CPF inválido','Os dígitos verificadores não conferem. Para '+fmt(d).slice(0,11)+' o correto seria '+v1+''+v2+', e você informou '+n[9]+''+n[10]+'.');}
+}
+document.getElementById('vbtn').addEventListener('click',run);
+inp.addEventListener('keydown',function(e){if(e.key==='Enter')run();});
+})();
+</script>
+<div class="prose pillar">
+  {{ .Content }}
+  {{ partial "faq.html" . }}
+</div>
+{{ $ld := dict "@context" "https://schema.org" "@type" "WebApplication" "name" .Title "url" .Permalink "applicationCategory" "UtilitiesApplication" "operatingSystem" "Any" "description" (or .Description site.Params.description) "inLanguage" "pt-BR" "isAccessibleForFree" true "publisher" (partial "ld-publisher.html" .) "offers" (dict "@type" "Offer" "price" "0" "priceCurrency" "BRL") }}
+<script type="application/ld+json">{{ $ld | jsonify | safeJS }}</script>
+{{ end }}
